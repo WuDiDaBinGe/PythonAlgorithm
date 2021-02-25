@@ -86,3 +86,6 @@ def test_ans():
     print(A * B)
 
 test_ans()
+
+
+# c[i][j]= a[i][k]+b[k][j]
