@@ -4,71 +4,56 @@ class Shape(object):
     def __init__(self, a, b):
         self.a = a
         self.b = b
-
+        self.draw()
     def area(self):
+        # 需要在子类中重写
         pass
 
     def perimeter(self):
+        # 需要在子类中重写
         pass
 
     def draw(self):
+        # 需要在子类中重写
         pass
 
     def __str__(self):
         return "Area is :%.2f, Perimeter is :%.2f" % (self.area(), self.perimeter())
 
 class Circle(Shape):
+    ############Begin##################
 
-    def __init__(self, a, b):
-        super(Circle, self).__init__(a, b)
-        self.draw()
 
-    def perimeter(self):
-        return 2*pi*self.a
+    ############End####################
 
-    def area(self):
-        return pi*self.a*self.b
-
-    def draw(self):
-        print("Draw Circle!")
 
 
 class RightTriangle(Shape):
+    ############Begin##################
 
-    def __init__(self, a, b):
-        super(RightTriangle, self).__init__(a, b)
-        self.draw()
 
-    def perimeter(self):
-        return self.a + self.b + sqrt(self.a**2 + self.b**2)
+    ############End####################
 
-    def area(self):
-        return self.a * self.b / 2
-
-    def draw(self):
-        print("Draw RightTriangle!")
 
 class Rectangle(Shape):
+    ############Begin##################
 
-    def __init__(self, a, b):
-        super(Rectangle, self).__init__(a, b)
-        self.draw()
 
-    def perimeter(self):
-        return 2 * (self.a + self.b)
 
-    def area(self):
-        return self.a * self.b
+    ############End####################
 
-    def draw(self):
-        print("Draw Rectangle!")
 
 
 class ShapeFactory(object):
 
+    ############Begin##################
+
     @staticmethod
-    def getShape(classname, a, b):
-        return eval(classname+"({},{})".format(a, b))
+    def getShape(classname, a, h):
+
+
+    ############End####################
+
 
 
 def simple_factory_test():

@@ -1,33 +1,33 @@
 from math import pi,sqrt
 class Shape(object):
 
-    def __init__(self, a, b):
+    def __init__(self, a, h):
         self.a = a
-        self.b = b
+        self.h = h
 
     def area(self):
-        pass
+        raise NotImplementedError
 
     def perimeter(self):
-        pass
+        raise NotImplementedError
 
     def draw(self):
-        pass
+        raise NotImplementedError
 
     def __str__(self):
-        return "Area is :%.2f, Perimeter is :%.2f" % (self.area(), self.perimeter())
+        return "a is %.2f,h is %.2f \nArea is :%.2f, Perimeter is :%.2f \n" % (self.a,self.h,self.area(), self.perimeter())
 
 class Circle(Shape):
 
-    def __init__(self, a, b):
-        super(Circle, self).__init__(a, b)
+    def __init__(self, a, h):
+        super(Circle, self).__init__(a, 0)
         self.draw()
 
     def perimeter(self):
         return 2*pi*self.a
 
     def area(self):
-        return pi*self.a*self.b
+        return pi*self.a*self.a
 
     def draw(self):
         print("Draw Circle!")
@@ -35,30 +35,30 @@ class Circle(Shape):
 
 class RightTriangle(Shape):
 
-    def __init__(self, a, b):
-        super(RightTriangle, self).__init__(a, b)
+    def __init__(self, a, h):
+        super(RightTriangle, self).__init__(a, h)
         self.draw()
 
     def perimeter(self):
-        return self.a + self.b + sqrt(self.a**2 + self.b**2)
+        return self.a + self.h + sqrt(self.a**2 + self.h**2)
 
     def area(self):
-        return self.a * self.b / 2
+        return self.a * self.h / 2
 
     def draw(self):
         print("Draw RightTriangle!")
 
 class Rectangle(Shape):
 
-    def __init__(self, a, b):
-        super(Rectangle, self).__init__(a, b)
+    def __init__(self, a, h):
+        super(Rectangle, self).__init__(a, h)
         self.draw()
 
     def perimeter(self):
-        return 2 * (self.a + self.b)
+        return 2 * (self.a + self.h)
 
     def area(self):
-        return self.a * self.b
+        return self.a * self.h
 
     def draw(self):
         print("Draw Rectangle!")
@@ -67,12 +67,12 @@ class Rectangle(Shape):
 class ShapeFactory(object):
 
     @staticmethod
-    def getShape(classname, a, b):
-        return eval(classname+"({},{})".format(a, b))
+    def getShape(classname, a, h):
+        return eval(classname+"({},{})".format(a, h))
 
 
 def simple_factory_test():
-    c = ShapeFactory.getShape("Circle", 3, 3)
+    c = ShapeFactory.getShape("Circle", 3, 0)
     print(c)
     b = ShapeFactory.getShape("Rectangle", 100, 600)
     print(b)
