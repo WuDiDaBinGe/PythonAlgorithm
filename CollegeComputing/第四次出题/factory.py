@@ -4,18 +4,18 @@ class Shape(object):
     def __init__(self, a, b):
         self.a = a
         self.b = b
-        self.draw()
+
     def area(self):
         # 需要在子类中重写
-        pass
+        raise NotImplementedError
 
     def perimeter(self):
         # 需要在子类中重写
-        pass
+        raise NotImplementedError
 
     def draw(self):
         # 需要在子类中重写
-        pass
+        raise NotImplementedError
 
     def __str__(self):
         return "Area is :%.2f, Perimeter is :%.2f" % (self.area(), self.perimeter())
